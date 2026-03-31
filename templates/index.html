@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>ToDo App</title>
+
+</head>
+
+<body>
+
+<h2>To Do List Application</h2>
+
+<form action="/add" method="post">
+
+<input type="text" name="task"
+placeholder="Enter Task" required>
+
+<button type="submit">
+
+Add Task
+
+</button>
+
+</form>
+
+<hr>
+
+<ul>
+
+{% for task in tasks %}
+
+<li>
+
+{{task}}
+
+<form action="/update/{{loop.index0}}"
+method="post">
+
+<input type="text" name="task">
+
+<button type="submit">
+
+Update
+
+</button>
+
+</form>
+
+<a href="/delete/{{loop.index0}}">
+
+Delete
+
+</a>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+</body>
+
+</html>
